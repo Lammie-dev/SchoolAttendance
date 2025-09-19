@@ -1,0 +1,146 @@
+[
+  {
+    "ContainingType": "SchoolAttendance.Controllers.AttendanceController",
+    "Method": "LecturerAttendance",
+    "RelativePath": "api/Attendance/api/lecturerattendance/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "record",
+        "Type": "SchoolAttendance.LectureDetails.Attendance.LecturerAttendance",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolAttendance.Controllers.AttendanceController",
+    "Method": "StudentAttendance",
+    "RelativePath": "api/Attendance/api/studentattendance/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "record",
+        "Type": "StudentAttendance",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolAttendance.Controllers.CourseController",
+    "Method": "CreateCourse",
+    "RelativePath": "api/Course/api/course/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "course",
+        "Type": "Course",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolAttendance.Controllers.LoginController",
+    "Method": "LecturerLogin",
+    "RelativePath": "api/Login/lecturerlogin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SchoolAttendance.LecturerLoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolAttendance.Controllers.LoginController",
+    "Method": "StudentLogin",
+    "RelativePath": "api/Login/studentlogin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SchoolAttendance.Registration_Login.Login.StudentLoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolAttendance.Controllers.StaffController",
+    "Method": "CreateAdmin",
+    "RelativePath": "api/Staff/api/admin/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "admin",
+        "Type": "Admin",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolAttendance.Controllers.StaffController",
+    "Method": "CreateLecturer",
+    "RelativePath": "api/Staff/api/lecturer/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "lecturer",
+        "Type": "Lecturer",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolAttendance.Controllers.StudCourseRegController",
+    "Method": "RegisterCourse",
+    "RelativePath": "api/StudCourseReg/api/studentcourseregistration",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registration",
+        "Type": "SchoolAttendance.Registration_Login.Register.CourseRegistration",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SchoolAttendance.Controllers.StudentController",
+    "Method": "CreateStudent",
+    "RelativePath": "api/Student/api/student/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "student",
+        "Type": "Student",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
