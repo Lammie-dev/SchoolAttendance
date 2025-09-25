@@ -47,6 +47,7 @@ public class StaffService
 			Department = admin.Department,
 			Email = admin.Email,
 			Role = admin.Role,
+			PasswordHash = "12345",
 			CreatedDate = DateTime.UtcNow,
 			UpdatedDate = DateTime.UtcNow
 		};

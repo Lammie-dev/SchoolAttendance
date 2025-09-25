@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SchoolAttendance.Controllers
 {
@@ -14,9 +15,27 @@ private readonly StudentService studentService;
         [HttpPost("api/student/create")]
         public ActionResult CreateStudent([FromBody] Student student)
         {
-            if (student == null) return BadRequest("Invalid student data");
+            if (student == null) 
+                return BadRequest("Invalid student data");
             var CreatedStudentData = studentService.CreateStudent(student);
             return Ok(CreatedStudentData);
+        }
+
+
+        [Authorize(Roles = "admin")]
+        [HttpGet("api/student/{studentId}")]
+        public ActionResult GetStudentsId (Guid studentId)
+        {
+            var GetStudentId = studentService.GetStudentId(studentId);
+            return Ok(GetStudentId);
+        }
+
+        [Authorize(Roles = "admin")]
+        [HttpGet("api/student/GetAllStudent")]
+        public ActionResult GetAllStudents(Student student)
+        {
+            var GetAllStudent = studentService.GetAllStudents(student);
+            return Ok(GetAllStudent);
         }
     }
 }

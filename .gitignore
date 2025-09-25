@@ -1,0 +1,46 @@
+﻿# Build results
+bin/
+obj/
+out/
+Debug/
+Release/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio
+.vs/
+
+# Rider
+.idea/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Entity Framework
+Migrations/
+
+# Config (if you want to exclude local secrets)
+appsettings.Development.json
+appsettings.Local.json
+
+# Other
+*.swp
+*.tmp
+*.bak
+
+appsettings.json
+appsettings.*.json

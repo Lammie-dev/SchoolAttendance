@@ -40,4 +40,34 @@ public class StudentService
         };
        
     }
+
+
+    public ActionResponse GetStudentId(Guid studentId)
+    {
+
+
+        var studentID = context.Students.FirstOrDefault(s =>  s.StudentId == studentId);
+        if (studentID == null)
+        {
+            return new ActionResponse
+            {
+                StatusCode = StatusCodes.Status404NotFound,
+                ErrorMessage = "Student not found."
+            };
+        }
+
+        return new ActionResponse
+        {
+            Result = studentID
+        };
+    }
+
+    public ActionResponse GetAllStudents (Student students)
+    {
+        var GetAllStudent = context.Students.ToList();
+        return new ActionResponse
+        {
+            Result = GetAllStudent
+        };
+    }
 }
