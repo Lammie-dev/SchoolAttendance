@@ -62,7 +62,7 @@ public class StudentService
         };
     }
 
-    public ActionResponse GetAllStudents (Student students)
+    public ActionResponse GetAllStudents ()
     {
         var GetAllStudent = context.Students.ToList();
         return new ActionResponse

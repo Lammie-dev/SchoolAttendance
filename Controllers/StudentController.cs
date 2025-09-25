@@ -32,9 +32,9 @@ private readonly StudentService studentService;
 
         [Authorize(Roles = "admin")]
         [HttpGet("api/student/GetAllStudent")]
-        public ActionResult GetAllStudents(Student student)
+        public ActionResult GetAllStudents()
         {
-            var GetAllStudent = studentService.GetAllStudents(student);
+            var GetAllStudent = studentService.GetAllStudents();
             return Ok(GetAllStudent);
         }
     }
