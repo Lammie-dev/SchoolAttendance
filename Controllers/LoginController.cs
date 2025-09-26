@@ -39,6 +39,16 @@ namespace SchoolAttendance.Controllers
 
             return Ok(response.Result);
         }
+
+        [HttpPost("adminlogin")]
+        public ActionResult AdminLogin([FromBody] AdminLoginRequest request)
+        {
+            var response = loginService.Login(request.Email, request.Password, "admin");
+            if (response != null)
+                return Ok(response.Result);
+            return Unauthorized(response.ErrorMessage);
+           
+        }
     }
 }
 

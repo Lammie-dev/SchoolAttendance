@@ -39,7 +39,10 @@ public class LoginService
             };
 
             var token = GenerateJwtToken(claims);
-            return new ActionResponse { Result = new { token } };
+            return new ActionResponse
+            {
+                Result = new { token }
+            };
         }
         else if (role.ToLower() == "lecturer")
         {
@@ -66,12 +69,37 @@ public class LoginService
             return new ActionResponse { Result = new { token } };
         }
 
-        return new ActionResponse
+        else if (role.ToLower() == "admin")
         {
-            StatusCode = StatusCodes.Status400BadRequest,
-            ErrorMessage = "Invalid role."
-        };
+            var admin = context.Staff.FirstOrDefault(a => a.Email == username);
+            if (admin == null || password != "12345")
+                return new ActionResponse
+                {
+                    StatusCode = StatusCodes.Status401Unauthorized,
+                    ErrorMessage = "Invalid email or password."
+                };
+
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.NameIdentifier, admin.Id.ToString()),
+                new Claim(ClaimTypes.Role, "admin")
+            };
+            var token = GenerateJwtToken(claims);
+            return new ActionResponse
+            {
+                Result = new { token }
+            };
+        }
+
+        return new ActionResponse
+            {
+                StatusCode = StatusCodes.Status400BadRequest,
+                ErrorMessage = "Invalid role."
+            };
     }
+
+
+
 
     private string GenerateJwtToken(Claim[] claims)
     {
