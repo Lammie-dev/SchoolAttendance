@@ -2,6 +2,7 @@
 using SchoolAttendance.LectureDetails.Attendance;
 using SchoolAttendance.LectureDetails.Attendance.AttendanceResponse;
 using SchoolAttendance.SchoolStructureModel;
+using System.Security.Cryptography.X509Certificates;
 
 namespace SchoolAttendance.SchoolServices
 {
@@ -133,10 +134,55 @@ var studentResponse = new StudentAttendanceResponse
                 Result = lecturerResponse
 
             };
-
-
+           
+        }
+        public ActionResponse StudentById(Guid studentId)
+        {
+            var studentById = context.Students.FirstOrDefault(s => s.StudentId == studentId);
+            if (studentById == null)
+                return new ActionResponse
+                {
+                    StatusCode = StatusCodes.Status404NotFound,
+                    ErrorMessage = "Student can not be found"
+                };
+            return new ActionResponse
+            {
+                Result = studentById
+            };
         }
 
+        public ActionResponse GetStudentRecord()
+        {
+            var getAllRecord = context.Students.ToList();
+            return new ActionResponse
+            {
+                Result = getAllRecord
+            };
+        }
+
+        public ActionResponse LecturerById (Guid lecturerId)
+        {
+            var lecturerById = context.Staff.FirstOrDefault(l => l.Id == lecturerId);
+            if (lecturerById == null)
+                return new ActionResponse
+                {
+                    StatusCode = StatusCodes.Status404NotFound,
+                    ErrorMessage = "Lecturer not found."
+                };
+            return new ActionResponse
+            {
+                Result = lecturerById
+            };
+        }
+
+        public ActionResponse LecturerRecords()
+        {
+            var lecturerRecords = context.Staff.ToList();
+            return new ActionResponse
+            {
+                Result = lecturerRecords
+            };
+        }
     }
     
 }
